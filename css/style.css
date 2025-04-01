@@ -92,6 +92,16 @@ footer {
   padding: 0 24px;
 }
 
+/* Hidden */
+.visually-hidden {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 /* Button */
 .main-button {
   padding: 16px 32px;
@@ -101,6 +111,8 @@ footer {
   background-color: var(--color-primary-light);
   border: 2px solid var(--color-primary-light);
   border-radius: 32px;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
 .main-button:hover {
@@ -113,6 +125,7 @@ footer {
   color: var(--color-primary-dark);
   font-size: 18px;
   text-decoration: none;
+  transition: 0.2s;
 }
 
 .link:hover {
@@ -120,6 +133,16 @@ footer {
 }
 
 /* Header */
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 32px;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.25);
+}
+
 .header-container {
   display: flex;
   align-items: center;
@@ -148,6 +171,7 @@ footer {
 .header-icon {
   fill: var(--color-primary-dark);
   cursor: pointer;
+  transition: 0.2s;
 }
 
 .header-icon:hover {
@@ -156,11 +180,11 @@ footer {
 
 /* Hero section */
 .hero-section {
-  background-image: url(/images/main\ photo\ in\ title.jpg);
+  background-image: url(/images/header-image.png);
   background-repeat: no-repeat;
   background-position: center bottom;
   background-size: cover;
-  padding: 60px 106px;
+  padding: 122px 106px;
 }
 
 .clinic-hero {
@@ -169,6 +193,7 @@ footer {
 }
 
 .hero-title {
+  width: 530px;
   color: var(--color-primary-light);
   font-family: var(--second-family);
   font-weight: 700;
@@ -219,6 +244,71 @@ footer {
   text-transform: capitalize;
 }
 
+.about-us-raund {
+  width: 327px;
+  height: 327px;
+  border-radius: 50%;
+}
+
+.about-stars {
+  animation-name: spin;
+  animation-delay: 2s;
+  animation-duration: 2s;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0) scale(1);
+  }
+
+  50% {
+    transform: rotate(180deg) scale(2);
+  }
+
+  to {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+.about-us-images {
+  width: 499px;
+  height: 695px;
+  position: relative;
+}
+
+.about-us-raund-before {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.about-us-raund-after {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.about-us-middle-star {
+  position: absolute;
+  top: 36px;
+  right: -13px;
+  fill: var(--color-primary-light);
+}
+
+.about-us-mini-star {
+  position: absolute;
+  top: 272px;
+  right: -14px;
+  fill: var(--color-secondary-light-gray);
+}
+
+.about-us-large-star {
+  position: absolute;
+  top: 340px;
+  right: 252px;
+  fill: var(--color-primary-dark);
+}
+
 /* Why we section */
 .why-we-title {
   margin-bottom: 48px;
@@ -234,6 +324,10 @@ footer {
   height: 181px;
 }
 
+.why-we-image {
+  fill: var(--color-primary-light);
+}
+
 .choise-color {
   color: var(--color-primary-light);
 }
@@ -241,7 +335,8 @@ footer {
 .clinic-infornation {
   display: flex;
   gap: 56px;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
   font-size: 18px;
   line-height: 1.3;
   text-align: center;
@@ -281,8 +376,6 @@ footer {
 
 .our-procedures {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
   gap: 16px;
   padding: 24px;
   line-height: 1.2;
@@ -302,6 +395,7 @@ footer {
   border: 1px solid var(--color-primary-dark);
   border-radius: 50%;
   cursor: pointer;
+  transition: 0.2s;
 }
 
 .carusel-button:hover {
@@ -310,9 +404,15 @@ footer {
   border: 1px solid var(--color-primary-base);
 }
 
+.next {
+  transform: rotate(180deg);
+}
+
 /* Contact section */
 .contact-container {
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 32px;
 }
 
@@ -325,22 +425,52 @@ footer {
   color: var(--color-primary-light);
 }
 
-.free-order-color {
+/* .free-order-color {
   color: var(--color-primary-light);
 }
 
 .call-order {
   font-weight: 600;
   text-align: center;
+} */
+
+.contact-modal {
+  text-align: center;
+  position: relative;
+  border-radius: 48px;
+  max-width: 422px;
+  max-height: 482px;
+  width: 100%;
+  height: 100%;
+  padding: 48px 56px;
+  color: var(--color-primary-base);
+  background-color: var(--color-primary-dark);
+  background-image: url(/images/form-background.png);
+}
+
+.contact-form-field {
+  margin-bottom: 16px;
 }
 
 /* Footer */
 .footer {
-  padding: 56px;
+  padding: 56px 0;
+  position: relative;
   background-image: url(/images/footer-background.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+}
+
+.footer::after {
+  position: absolute;
+  background-repeat: no-repeat;
+  content: "";
+  width: 247px;
+  height: 152px;
+  bottom: 0;
+  right: 0;
+  background-image: url(/images/bottel-in-footer.png);
 }
 
 .footer-container {
@@ -369,6 +499,7 @@ footer {
   color: var(--color-primary-base);
   font-size: 16px;
   text-decoration: none;
+  transition: 0.2s;
 }
 
 .link-footer:hover {
@@ -379,6 +510,7 @@ footer {
   color: var(--color-primary-base);
   font-size: 16px;
   text-decoration: none;
+  transition: 0.2s;
 }
 
 .address-link:hover {
@@ -388,6 +520,7 @@ footer {
 .address-icon {
   cursor: pointer;
   fill: var(--color-primary-base);
+  transition: 0.2s;
 }
 
 .address-icon:hover {
@@ -397,4 +530,128 @@ footer {
 .address-copyright {
   color: var(--color-secondary-light-gray);
   font-size: 13px;
+}
+
+/* Form */
+.backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.modal {
+  text-align: center;
+  position: relative;
+  border-radius: 48px;
+  max-width: 723px;
+  width: 100%;
+  max-height: 681px;
+  height: 100%;
+  padding: 42px 144px;
+  color: var(--color-primary-base);
+  background-color: var(--color-primary-dark);
+  background-image: url(/images/form-background.png);
+  overflow-y: auto;
+}
+
+.modal-btn-close {
+  position: absolute;
+  top: 42px;
+  right: 42px;
+}
+
+.modal-title {
+  line-height: 1.3;
+}
+
+.form-order {
+  width: 310px;
+  margin: 0 auto;
+}
+
+.form-descr {
+  font-weight: 600;
+}
+
+.form-descr-accent {
+  color: var(--color-primary-light);
+}
+
+.form-button {
+  font-weight: 600;
+  font-size: 18px;
+  padding: 16px 32px;
+  border: 2px solid var(--color-primary-light);
+  border-radius: 48px;
+  color: var(--color-primary-base);
+  background-color: var(--color-primary-light);
+  cursor: pointer;
+  transition: 0.2s;
+  display: block;
+  margin: 0 auto 8px;
+}
+
+.form-button:hover {
+  background-color: transparent;
+}
+
+.form-term {
+  color: var(--color-secondary-light-gray);
+  margin: 0 auto;
+  max-width: 209px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.form-term-link {
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+}
+
+.form-field {
+  margin-bottom: 24px;
+}
+
+.form-label {
+  display: block;
+}
+
+.form-input {
+  background-color: transparent;
+  border: 2px solid var(--color-secondary-light-gray);
+  border-radius: 32px;
+  padding: 18px 32px;
+  width: 310px;
+  height: 52px;
+}
+
+.form-input:focus {
+  border-color: var(--color-primary-light);
+  outline: none;
+  color: var(--color-primary-base);
+}
+
+.form-input::placeholder {
+  color: var(--color-primary-base);
+  font-size: 13px;
+  line-height: 1.17;
+}
+
+.form-input:focus::placeholder {
+  color: var(--color-primary-base);
 }
